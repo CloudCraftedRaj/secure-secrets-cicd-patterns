@@ -40,6 +40,8 @@ jobs:
             echo "demo_api_key=$SECRET" >> $GITHUB_OUTPUT
 
       - name: Use secret (masked)
+        shell: bash
         run: |
-          echo "Secret fetched successfully. Length: ${#${{ steps.kv.outputs.demo_api_key }}}"
-          echo "✅ Using the secret in a safe way (masked in logs)."
+            SECRET="${{ steps.kv.outputs.demo_api_key }}"
+            echo "Secret fetched successfully. Length: ${#SECRET}"
+            echo "✅ Using the secret in a safe way (masked in logs)."
