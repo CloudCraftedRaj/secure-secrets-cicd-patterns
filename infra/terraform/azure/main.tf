@@ -64,14 +64,14 @@ resource "azurerm_role_assignment" "kv_secrets_user" {
   scope                = azurerm_key_vault.kv.id
   role_definition_name = "Key Vault Secrets User"
   principal_id         = azurerm_user_assigned_identity.gha.principal_id
-  depends_on = [azurerm_key_vault.kv_prod]
+  depends_on           = [azurerm_key_vault.kv]
 }
 
 resource "azurerm_role_assignment" "kv_prod_secrets_user" {
   scope                = azurerm_key_vault.kv_prod.id
   role_definition_name = "Key Vault Secrets User"
   principal_id         = azurerm_user_assigned_identity.gha_prod.principal_id
-  depends_on = [azurerm_key_vault.kv]
+  depends_on           = [azurerm_key_vault.kv_prod]
 }
 
 # Federated credential so GitHub Actions can login without secrets
