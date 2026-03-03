@@ -11,7 +11,7 @@ variable "resource_group_name" {
 variable "key_vault_name" {
   type = string
   # must be globally unique; you can override via tfvars
-  default = "kv-secure-secrets-cicd-raj"
+  default = "kv-securesecretscicd3018"
 }
 
 # GitHub repo identity for federated auth
@@ -26,4 +26,9 @@ variable "github_repo" {
 variable "github_branch" {
   type    = string
   default = "main"
+}
+
+variable "key_vault_name_prod" {
+  type = string
+  default = "kv-securecicdprod3018"
 }

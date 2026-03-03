@@ -1,4 +1,4 @@
-name: Azure Key Vault Secret Read (OIDC)
+name: DEV Azure Key Vault Secret Read (OIDC)
 
 on:
   workflow_dispatch:
